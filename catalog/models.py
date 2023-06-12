@@ -19,6 +19,13 @@ class House(models.Model):
 
     def __str__(self):
         return self.name
+    
+class HouseImage(models.Model):
+    house = models.ForeignKey(House, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField('Изображение', upload_to='house/')
+
+    def __str__(self):
+        return f'Image for {self.house}'     
 
 class Location(models.Model):
     house = models.OneToOneField(House, on_delete=models.CASCADE, related_name='location')
@@ -33,15 +40,22 @@ class Location(models.Model):
 class FloorPlan(models.Model):
     house = models.ForeignKey(House, on_delete=models.CASCADE, related_name='floor_plans')
     name = models.CharField('Наименование', max_length=100)
+    schema = models.ImageField('Схема этажа', upload_to='floor_plans/')
 
     def __str__(self):
         return self.name
+    
+class FloorPlanImage(models.Model):
+    floor_plan = models.ForeignKey(FloorPlan, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField('Изображение', upload_to='floor_plans_image/')
+
+    def __str__(self):
+        return f'Image for {self.floor_plan}'    
     
 class Room(models.Model):
     floor_plan = models.ForeignKey(FloorPlan, on_delete=models.CASCADE, related_name='rooms')
     name = models.CharField('Название комнаты', max_length=100)
     area = models.FloatField('Количество квадратных метров')
-    schema = models.ImageField('Схема этажа', upload_to='floor_plans/')
 
     def __str__(self):
         return self.name    
