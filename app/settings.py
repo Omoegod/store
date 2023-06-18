@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'jazzmin',
+    'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,9 +43,8 @@ INSTALLED_APPS = [
     'catalog',
     'blog',
     'tinymce',
-    'grappelli',
-    'filebrowser',
     'rest_framework',
+    
 ]
 
 MIDDLEWARE = [
@@ -86,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'store',
         'USER': 'root',
-        'PASSWORD': 'password',
+        'PASSWORD': 'Sobol22vadim',
         'HOST': '127.0.0.1',  # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
@@ -169,14 +169,14 @@ JAZZMIN_SETTINGS = {
 }
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "static"),
+# )
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static/')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 PROJECT_DIR = os.path.dirname(__file__)
 
 TINYMCE_SPELLCHECKER = True
@@ -215,3 +215,4 @@ TINYMCE_DEFAULT_CONFIG = {
     'statusbar': True,
     "language": "ru_RU",
 }
+
