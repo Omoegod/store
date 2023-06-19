@@ -22,7 +22,7 @@ class Article(models.Model):
     
 
 class ArticleBlock(models.Model):
-    article_block = models.ForeignKey(Article, on_delete=models.CASCADE)
+    article_block = models.ForeignKey(Article, related_name='articles', on_delete=models.CASCADE)
     block_title = models.CharField(max_length=200, blank=True, null=True)
     content =  HTMLField(blank=True, null=True)
     def __str__(self):
@@ -30,12 +30,11 @@ class ArticleBlock(models.Model):
     
 
 class Video(models.Model):
-    article_block = models.ForeignKey(Article, on_delete=models.CASCADE)
+    article_block = models.ForeignKey(Article, related_name='videos', on_delete=models.CASCADE)
     video_url = models.FileField()
      
 
 class Photo(models.Model):
-    article_block = models.ForeignKey(Article, on_delete=models.CASCADE)
+    article_block = models.ForeignKey(Article, related_name='photos', on_delete=models.CASCADE)
     photo_url = models.FileField()
       
-

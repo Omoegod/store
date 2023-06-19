@@ -1,20 +1,13 @@
 from django.urls import re_path, include, path
 from rest_framework import routers
 
-from api.views import ArticleObject, ArticleBlockDetail
+from api import views
 
-# router = routers.DefaultRouter()
+router = routers.DefaultRouter()
 
-# router.register('article', ArticleObject, basename='article')
+router.register('article', views.ArticleList, basename='article')
 
-# urlpatterns = [
-#     re_path(r'^article$', ArticleObject.as_view(), name='article')
-# ]
 urlpatterns = [
-    #path('articles/', ArticleBlockObject.as_view({'get': 'list'})),
-    path('article/', ArticleObject.as_view({'get': 'list'})),
-    # path('articles/<int:pk>/', ArticleDetail.as_view()),
-    # path('article-blocks/<int:pk>/', ArticleBlockDetail.as_view()),
-    # path('videos/<int:pk>/', VideoDetail.as_view()),
-    # path('photos/<int:pk>/', PhotoDetail.as_view()),
+    re_path(r'^article$', views.ArticleList.as_view({'get': 'list'}), name='article-list'),
+    re_path(r'^rest/', include(router.urls))
 ]

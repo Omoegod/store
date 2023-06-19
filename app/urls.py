@@ -21,10 +21,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('tinymce/', include('tinymce.urls')),
-    path('admin/filebrowser/', site.urls),
-    path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
+    re_path(r'^tinymce/', include('tinymce.urls')),
+    re_path(r'^admin/filebrowser/', site.urls),
+    re_path(r'^admin/', admin.site.urls),
+    re_path(r'^api-auth/', include('rest_framework.urls')),
     re_path(r'^api/', include('api.urls')),
 
 
