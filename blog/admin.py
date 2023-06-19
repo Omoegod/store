@@ -32,7 +32,7 @@ class ArticleAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Article, ArticleAdmin)
-# admin.site.register(ArticleBlock)
-# admin.site.register(Video)
-# admin.site.register(Photo)
+admin.site.register(ArticleBlock)
+admin.site.register(Video)
+admin.site.register(Photo)
 admin.site.register(Tag)

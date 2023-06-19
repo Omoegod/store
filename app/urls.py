@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
 from filebrowser.sites import site
 from django.conf import settings
 from django.conf.urls.static import static
@@ -24,5 +24,8 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('admin/filebrowser/', site.urls),
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls'))
+    path('api-auth/', include('rest_framework.urls')),
+    re_path(r'^api/', include('api.urls')),
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

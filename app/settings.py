@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'blog',
     'tinymce',
     'rest_framework',
+    'drf_multiple_model',
     
 ]
 
@@ -86,7 +87,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'store',
         'USER': 'root',
-        'PASSWORD': 'Sobol22vadim',
+        'PASSWORD': 'password',
+        # 'PASSWORD': 'Sobol22vadim',
         'HOST': '127.0.0.1',  # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
@@ -216,3 +218,6 @@ TINYMCE_DEFAULT_CONFIG = {
     "language": "ru_RU",
 }
 
+REST_FRAMEWORK = {
+    'DEFAULT_LOOKUP_FIELD': 'pk',
+}
